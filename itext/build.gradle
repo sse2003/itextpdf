@@ -1,0 +1,19 @@
+
+apply plugin: 'war'
+
+sourceSets {
+  main {
+    resources {
+      include '**/*.lng'
+      include '**/*.afm'
+      include '**/*.html'
+      include '**/*.txt'
+    }
+  }
+}
+
+dependencies {
+  compile 'com.madgag:scprov-jdk15on:1.47.0.2'
+  compile 'com.madgag:scpkix-jdk15on:1.47.0.2'
+  compile 'org.apache.santuario:xmlsec:1.5.1'
+}

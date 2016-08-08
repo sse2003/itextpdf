@@ -1,0 +1,4 @@
+rootProject.name = "Itext"
+
+include 'itext'
+include 'xmlworker'

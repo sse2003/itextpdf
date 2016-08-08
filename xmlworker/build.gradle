@@ -1,0 +1,18 @@
+
+
+apply plugin: 'war'
+
+sourceSets {
+    main {
+        resources {
+            exclude 'examples/*.java'
+            exclude 'com/itextpdf/tool/xml/examples/*.java'
+            exclude 'com/itextpdf/tool/xml/BugRunnerTest.java'
+        }
+    }
+}
+
+dependencies {
+  compile project(":itext")
+}
+
