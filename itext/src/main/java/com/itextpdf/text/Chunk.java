@@ -114,7 +114,23 @@ public class Chunk implements Element, IAccessibleElement {
     protected HashMap<PdfName, PdfObject> accessibleAttributes = null;
     private AccessibleElementId id = null;
 
-	// constructors
+    public enum DisplayType {
+        NONE, BLOCK, INLINE, INLINE_BLOCK, INLINE_TABLE, LIST_ITEM, RUN_IN, TABLE, TABLE_CAPTION, TABLE_CELL, TABLE_COLUMN_GROUP, TABLE_COLUMN, TABLE_FOOTER_GROUP,
+        TABLE_HEADER_GROUP, TABLE_ROW, TABLE_ROW_GROUP
+    }
+
+    protected DisplayType display = null;
+
+    public DisplayType getDisplay() {
+        return display;
+    }
+
+    public void setDisplay(DisplayType display) {
+        this.display = display;
+    }
+
+
+    // constructors
 
 	/**
 	 * Empty constructor.
@@ -408,6 +424,9 @@ public class Chunk implements Element, IAccessibleElement {
 	public String getContent() {
         if (contentWithNoTabs == null)
 		    contentWithNoTabs = content.toString().replaceAll("\t", "");
+
+        if (getDisplay() == DisplayType.NONE) return "";
+
         return contentWithNoTabs;
 	}
 

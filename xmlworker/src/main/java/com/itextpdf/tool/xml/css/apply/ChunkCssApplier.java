@@ -96,6 +96,13 @@ public class ChunkCssApplier {
         for (Entry<String, String> entry : rules.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
+
+            if (CSS.Property.DISPLAY.equalsIgnoreCase(key)) {
+                if (value.equalsIgnoreCase(CSS.Value.NONE)){
+                    c.setDisplay(Chunk.DisplayType.NONE);
+                }
+            }
+
             if (CSS.Property.FONT_STYLE.equalsIgnoreCase(key)) {
                 if (value.equalsIgnoreCase(CSS.Value.OBLIQUE)) {
                     c.setSkew(0, 12);

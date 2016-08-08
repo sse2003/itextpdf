@@ -455,6 +455,7 @@ public class PdfDiv implements Element, Spaceable, IAccessibleElement {
     }
 
     public ArrayList<Element> getContent() {
+        if (getDisplay() == DisplayType.NONE) content.clear();
         return content;
     }
 
@@ -471,7 +472,6 @@ public class PdfDiv implements Element, Spaceable, IAccessibleElement {
     }
 
     public int layout(final PdfContentByte canvas, boolean useAscender, boolean simulate, final float llx, final float lly, final float urx, final float ury) throws DocumentException {
-
         float leftX = Math.min(llx, urx);
         float maxY = Math.max(lly, ury);
         float minY = Math.min(lly, ury);
